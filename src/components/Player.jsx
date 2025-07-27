@@ -13,6 +13,7 @@ const Player = ({ currentSong, isPlaying, onPlay, onPause, onNext, onPrevious, i
     const [duration, setDuration] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
     const audioRef = useRef(new Audio());
+    const prevSongRef = useRef(null);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -32,6 +33,7 @@ const Player = ({ currentSong, isPlaying, onPlay, onPause, onNext, onPrevious, i
         };
     }, [onNext]);
 
+    // Handle song changes (separated from play/pause logic)
     useEffect(() => {
         const audio = audioRef.current;
         if (currentSong) {
@@ -43,17 +45,34 @@ const Player = ({ currentSong, isPlaying, onPlay, onPause, onNext, onPrevious, i
                 // Server API EXAMPLE (fetch song by ID): http://localhost:5000/song/1;
                 src = `${process.env.REACT_APP_SERVER_BASE_URL}/song/${currentSong.id}`;
             }
+            
+            // Only load if the source actually changed
             if (audio.src !== src) {
                 audio.src = src;
                 audio.load();
             }
+        }
+    }, [currentSong, isMockData]);
+
+    // Handle auto-play for new songs
+    useEffect(() => {
+        const audio = audioRef.current;
+        
+        // Check if song actually changed
+        if (currentSong && prevSongRef.current !== currentSong) {
+            prevSongRef.current = currentSong;
+            
             if (isPlaying) {
-                audio.play().catch(error => console.error('Error playing audio:', error));
+                const playWhenReady = () => {
+                    audio.play().catch(error => console.error('Error playing audio:', error));
+                    audio.removeEventListener('canplay', playWhenReady);
+                };
+                audio.addEventListener('canplay', playWhenReady);
             }
         }
-    }, [currentSong, isPlaying, isMockData]);
+    }, [currentSong, isPlaying]);
 
-
+    // Handle play/pause state changes
     useEffect(() => {
         const audio = audioRef.current;
         if (isPlaying) {
@@ -141,7 +160,6 @@ const Player = ({ currentSong, isPlaying, onPlay, onPause, onNext, onPrevious, i
                     <img src={isMuted ? SoundOffButton : SoundOnButton} alt={isMuted ? "Unmute" : "Mute"} />
                 </button>
             </div>
-
         </div>
     );
 };
