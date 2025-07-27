@@ -68,5 +68,12 @@ export const mockSongs = () => [
     artist: "Electro-Light",
     accent: "#FFA500",
     top_track: true,
+  },
+  {
+    id: 11,
+    name: "Photograph",
+    artist: "Ed sheeran",
+    accent: "#00ff8cff",
+    top_track: true,
   }
 ];
