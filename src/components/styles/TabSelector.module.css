@@ -1,0 +1,20 @@
+.tabSelector {
+    display: flex;
+    margin: 20px 0;
+    padding-left: 16px;
+}
+
+.tabSelector button {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+}
+
+.tabSelector button.active {
+    color: white;
+}

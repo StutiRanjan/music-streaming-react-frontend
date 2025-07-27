@@ -1,0 +1,75 @@
+.musicPlayer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: background 0.5s ease;
+}
+
+.leftPanel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.logoDiv {
+    font-family: "Imperial Script", cursive;
+    font-weight: 700;
+    font-style: normal; 
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.centerPanel {
+    flex: 3;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.rightPanel {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .musicPlayer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        
+    }
+
+    .leftPanel {
+        grid-row: 1/2;
+        grid-column: 1/3;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .musicPlayer {
+        flex-direction: column;
+    }
+
+    .leftPanel {
+        flex-direction: row;
+        flex: none;
+    }
+
+    .rightPanel {
+        flex: none;
+    }
+}

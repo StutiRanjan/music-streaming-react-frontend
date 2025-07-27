@@ -1,0 +1,43 @@
+.songList {
+    margin-top: 20px;
+}
+
+.songItem {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.songItem:hover {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.songItem.active {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.coverArt {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.songInfo {
+    text-align: left;
+}
+
+.songInfo h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.songInfo p {
+    /* margin: 5px 0 0; */
+    font-size: 14px;
+    color: #b3b3b3;
+}

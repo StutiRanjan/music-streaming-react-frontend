@@ -1,0 +1,72 @@
+export const mockSongs = () => [
+  {
+    id: 1,
+    name: "On & On (feat. Daniel Levi)",
+    artist: "Cartoon, Daniel Levi, Jéja",
+    accent: "#FF4500",
+    top_track: true,
+  },
+  {
+    id: 2,
+    name: "Heroes Tonight (feat. Johnning)",
+    artist: "Janji, Johnning",
+    accent: "#FF6347",
+    top_track: false,
+  },
+  {
+    id: 3,
+    name: "Mortals (feat. Laura Brehm)",
+    artist: "Warriyo, Laura Brehm",
+    accent: "#FF0000",
+    top_track: false,
+  },
+  {
+    id: 4,
+    name: "Invincible",
+    artist: "DEAF KEV",
+    accent: "#00CED1",
+    top_track: true,
+  },
+  {
+    id: 5,
+    name: "My Heart",
+    artist: "Different Heaven, EH!DE",
+    accent: "#FFD700",
+    top_track: true,
+  },
+  {
+    id: 6,
+    name: "Sky High",
+    artist: "Elektronomia",
+    accent: "#FFD700",
+    top_track: false,
+  },
+  {
+    id: 7,
+    name: "Blank",
+    artist: "Disfigure",
+    accent: "#00FF7F",
+    top_track: false,
+  },
+  {
+    id: 8,
+    name: "Why We Lose (feat. Coleman Trapp)",
+    artist: "Cartoon, Coleman Trapp, Jéja",
+    accent: "#FFA500",
+    top_track: true,
+  },
+  {
+    id: 9,
+    name: "Fearless pt. II (feat. Chris Linton)",
+    artist: "TULE, Chris Linton",
+    accent: "#FF4500",
+    top_track: false,
+  },
+  {
+    id: 10,
+    name: "Symbolism",
+    artist: "Electro-Light",
+    accent: "#FFA500",
+    top_track: true,
+  }
+];
